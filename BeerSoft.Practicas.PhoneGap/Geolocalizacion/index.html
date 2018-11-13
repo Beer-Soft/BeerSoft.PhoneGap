@@ -12,21 +12,67 @@
     <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 
     <script type="text/javascript" charset="utf-8">
-        window.onload = function () {
-            document.addEventListener("deviceready", function () {
+        //window.onload = function () {
+        //    document.addEventListener("deviceready", function () {
 
                
 
-            }, false);
+        //    }, false);
 
-            //ons.ready(function () {
+        //    //ons.ready(function () {
               
-            //});
+        //    //});
+        //}
+        var lt, ln;
+        document.addEventListener('init', function (event) {
+            console.log('This is a lifecycle event!', event.target);
+
+            var page = event.target;
+            if (page.matches('#helloworld-page')) {
+                page.querySelector('ons-toolbar .center').innerHTML = 'Geolocalizacion';
+                page.querySelector('ons-button').onclick = function () {
+                    //ons.notification.alert('Latitud: ' );
+                    if (navigator.geolocation) {
+                        var opciones = {
+                            timeout: 5000,
+                            enableHighAccuracy: true
+                        };
+                        navigator.geolocation.getCurrentPosition(muestraCoordenadas, onError, opciones);
+                    } else {
+                        document.getElementById("salida").innerHTML("Tu navegador no soporta la geolocalización");
+                    }
+                };
+            }
+        });
+
+        function muestraCoordenadas(posicion) {
+            lt = posicion.coords.latitude;
+            ln = posicion.coords.longitude;
+            ons.notification.alert('Latitud: ' + lt + "\n" + "Longitud: " + ln);
+        }
+        function onError(e) {
+            var msg = "Error en geolocalización: #" + e.code + "\n" +
+                e.message;
+            console.log(msg);
+            alert(msg);
         }
        
     </script>
 </head>
 <body>
-   
+    <ons-page id="helloworld-page">
+        <ons-toolbar>
+            <div class="center"></div>
+            <div class="right">
+                <ons-toolbar-button>
+                    <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+        </ons-toolbar>
+        <p style="text-align: center">
+            <ons-button>Obtener</ons-button>
+        </p>
+        
+    </ons-page>
 </body>
 </html>

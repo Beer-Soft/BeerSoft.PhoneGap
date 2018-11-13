@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.beersoft.device"
+        id        = "com.beersoft.geolocalizacion"
         version   = "1.0.0">
 	<name>GeoLocalizacion</name>
 	<description>
@@ -20,8 +20,8 @@
 	<content src="index.html" />
 	<access origin="*" />
   <splash src="splash.png" />
-  
-  <plugin name="cordova-plugin-splashscreen" spec="~5.0.2" />
-  
+
+  <plugin name="cordova-plugin-splashscreen" spec="~4.0.0" />
+  <plugin name="cordova-plugin-geolocation" spec="~2.4.0" />
 	
 </widget>
