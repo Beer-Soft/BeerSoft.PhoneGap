@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.beersoft.device"
+        version   = "1.0.0">
+	<name>GeoLocalizacion</name>
+	<description>
+		Mostrar las coordenadas
+	</description>
+	<author email="beer.soft@outlook.com" href="http://beersoft.com">
+		Diego Luna
+	</author>
+	<gap:plataform name="android" />
+	<preference name="orientation" value="portrait" />
+	<preference name="fullscreen" value="false" />
+	<preference name="android-installLocation" value="auto" />
+  <preference name="SplashScreenDelay" value="10000" />
+	
+
+	<content src="index.html" />
+	<access origin="*" />
+  <splash src="splash.png" />
+  
+  <plugin name="cordova-plugin-splashscreen" spec="~5.0.2" />
+  
+	
+</widget>
